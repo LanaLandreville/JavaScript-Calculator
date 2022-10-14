@@ -6,8 +6,8 @@ class calculator {
   }
 
   clear() {
-    this.currentOperand = "";
-    this.previousOperand = "";
+    this.currentOperand = " ";
+    this.previousOperand = " ";
     this.operation = undefined;
   }
 
@@ -21,13 +21,13 @@ class calculator {
   }
 
   chooseOperation(operation) {
-    if (this.currentOperand === "") return;
-    if (this.previousOperand !== "") {
+    if (this.currentOperand === " ") return;
+    if (this.previousOperand !== " ") {
       this.compute();
     }
     this.operation = operation;
     this.previousOperand = this.currentOperand;
-    this.currentOperand = "";
+    this.currentOperand = " ";
   }
 
   compute() {
@@ -53,7 +53,7 @@ class calculator {
     }
     this.currentOperand = computation;
     this.operation = undefined;
-    this.previousOperand = "";
+    this.previousOperand = " ";
   }
 
   getDisplayNumber(number) {
@@ -62,7 +62,7 @@ class calculator {
     const decimalDigits = stringNumber.split(".")[1];
     let integerDisplay;
     if (isNaN(integerDigits)) {
-      integerDisplay = "";
+      integerDisplay = " ";
     } else {
       integerDisplay = integerDigits.toLocaleString("en", {
         maximumFractionDigits: 0,
@@ -101,7 +101,7 @@ const currentOperandTextElement = document.querySelector(
   "[data-current-operand]"
 );
 
-const calculator = new calculator(
+const calculator = new Calculator(
   previousOperandTextElement,
   currentOperandTextElement
 );
