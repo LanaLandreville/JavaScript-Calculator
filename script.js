@@ -84,7 +84,7 @@ class calculator {
         this.previousOperand
       )}${this.operation}`;
     } else {
-      this.previousOperandTextElement.innerText = "";
+      this.previousOperandTextElement.innerText = " ";
     }
   }
 }
